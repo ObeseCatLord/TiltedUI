@@ -8,8 +8,11 @@
 
 namespace DirectX
 {
-    class SpriteBatch;
-    class CommonStates;
+    inline namespace DX11
+    {
+        class SpriteBatch;
+        class CommonStates;
+    }
 }
 
 struct IDXGISwapChain;
@@ -68,7 +71,7 @@ namespace TiltedPhoques
         Microsoft::WRL::ComPtr<ID3D11DeviceContext> m_pContext;
         Microsoft::WRL::ComPtr<ID3D11DeviceContext> m_pImmediateContext;
 
-        std::unique_ptr<DirectX::SpriteBatch> m_pSpriteBatch;
-        std::unique_ptr<DirectX::CommonStates> m_pStates;
+        std::unique_ptr<DirectX::DX11::SpriteBatch> m_pSpriteBatch;
+        std::unique_ptr<DirectX::DX11::CommonStates> m_pStates;
     };
 }

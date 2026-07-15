@@ -50,7 +50,7 @@ namespace TiltedPhoques
 
         if (IsVisible())
         {
-            m_pSpriteBatch->Begin(DirectX::SpriteSortMode_Deferred, m_pStates->NonPremultiplied());
+            m_pSpriteBatch->Begin(DirectX::DX11::SpriteSortMode_Deferred, m_pStates->NonPremultiplied());
 
             {
                 std::unique_lock<std::mutex> _(m_textureLock);
@@ -96,8 +96,8 @@ namespace TiltedPhoques
         if (FAILED(m_pDevice->CreateDeferredContext(0, m_pContext.ReleaseAndGetAddressOf())))
             return;
 
-        m_pSpriteBatch = std::make_unique<DirectX::SpriteBatch>(m_pImmediateContext.Get());
-        m_pStates = std::make_unique<DirectX::CommonStates>(m_pDevice.Get());
+        m_pSpriteBatch = std::make_unique<DirectX::DX11::SpriteBatch>(m_pImmediateContext.Get());
+        m_pStates = std::make_unique<DirectX::DX11::CommonStates>(m_pDevice.Get());
 
         if (FAILED(DirectX::CreateWICTextureFromFile(m_pDevice.Get(), m_pParent->GetCursorPathPNG().c_str(), nullptr, m_pCursorTexture.ReleaseAndGetAddressOf())))
         {

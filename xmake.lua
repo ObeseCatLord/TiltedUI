@@ -5,7 +5,7 @@ set_xmakever("2.5.1")
 add_requires(
     "tiltedcore",
     "catch2 2.13.9",
-    "directxtk 21.11.0",
+    "directxtk 24.2.0",
     "cef 141.0.11",
     "hopscotch-map v2.3.1"
 )
